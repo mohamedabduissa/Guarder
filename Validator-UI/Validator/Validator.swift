@@ -15,7 +15,10 @@ open class Validator: NSObject {
     private var guards: [GuardModel] = []
     private var guardOnSuperViewOfTextField: Bool = false
     private var holdAllOldColors: Bool = false
+    private var _validateOnTextDidChange: Bool = false
+    private var _validateOnTextDidEndEditing: Bool = false
     private var validatorUIType: [ValidatorUIType] = [.none]
+    internal var publisher: Publisher<String?>?
     weak var delegate: ValidatorTextFieldDelegate?
     
     // MARK: - ...  init
@@ -30,6 +33,16 @@ open class Validator: NSObject {
     init(guardOnSuperViewOfTextField: Bool = false, holdAllOldColors: Bool = false) {
         self.guardOnSuperViewOfTextField = guardOnSuperViewOfTextField
         self.holdAllOldColors = holdAllOldColors
+    }
+    @discardableResult
+    func validateOnTextDidChange() -> Self {
+        self._validateOnTextDidChange = true
+        return self
+    }
+    @discardableResult
+    func validateOnTextDidEndEditing() -> Self {
+        self._validateOnTextDidEndEditing = true
+        return self
     }
     @discardableResult
     func setUIType(_ type: ValidatorUIType) -> Self {
@@ -47,7 +60,9 @@ extension Validator {
     @discardableResult
     public func append(_ textField: GuardedFacade, rules: [Guard], title: String?) -> Self {
         textField.delegate = self
-        textField.addTarget(self, action: #selector(Validator.textFieldDidChange(_:)), for: .editingChanged)
+        if _validateOnTextDidChange {
+            textField.addTarget(self, action: #selector(Validator.textFieldDidChange(_:)), for: .editingChanged)
+        }
         let model = GuardModel(textField: textField).rules(rules).setTitle(title)
         if holdAllOldColors {
             model.holdColor()
@@ -87,13 +102,16 @@ extension Validator: ValidatorGuard {
             rule.textField = textField.textField
             if !rule.confirm() {
                 successValidate = false
-                textField.shake(guardOnSuperViewOfTextField)
+                //textField.shake(guardOnSuperViewOfTextField)
                 handleTextFieldError(textField.textField)
                 handleSuperViewOfTextField(textField.textField, false)
             } else {
                 handleTextFieldSuccess(textField.textField)
                 handleSuperViewOfTextField(textField.textField, true)
             }
+        }
+        if !successValidate {
+            send(on: textField.errorMessage())
         }
         return successValidate
     }
@@ -108,7 +126,7 @@ extension Validator: ValidatorGuard {
 }
 
 // MARK: - ...  Handle UI
-extension Validator: ValidatorUI, ValidatorUnderlineUI, ValidatorInfoMarkUI, ValidatorLabelUI {
+extension Validator: ValidatorUI, ValidatorUnderlineUI, ValidatorInfoMarkUI, ValidatorLabelUI, ValidatorAlertable {
     internal func handleTextFieldError(_ textField: GuardedFacade) {
         if textField.text?.isEmpty == false {
             textField.textColor = .red
@@ -133,8 +151,8 @@ extension Validator: ValidatorUI, ValidatorUnderlineUI, ValidatorInfoMarkUI, Val
                 handleUnderline(textField, success)
             case .label:
                 handleLabel(textField, success)
-            case .message:
-                handleMessage(textField, success)
+            case .message(let view):
+                handleMessage(view, textField, success)
             case .scroll(let scroll):
                 handleScroll(scroll, for: textField)
             default:
@@ -180,10 +198,10 @@ extension Validator: ValidatorUI, ValidatorUnderlineUI, ValidatorInfoMarkUI, Val
         let point = CGPoint(x: scrollView.frame.origin.x, y: textField.frame.origin.y)
         scrollView.setContentOffset(point, animated: true)
     }
-    internal func handleMessage(_ textField: GuardedFacade, _ success: Bool) {
+    internal func handleMessage(_ view: UIViewController, _ textField: GuardedFacade, _ success: Bool) {
         let model = guardModel(textField)
         if !success {
-            //NotificationBuilder().setBody(model?.errorMessage()).bulid()
+            makeAlert(view, for: model?.errorMessage() ?? "", noCancel: true, closure: {})
         }
     }
 }
@@ -199,6 +217,10 @@ extension Validator: UITextFieldDelegate {
         delegate?.textFieldDidBeginEditing?(textField)
     }
     public func textFieldDidEndEditing(_ textField: UITextField) {
+        if !_validateOnTextDidEndEditing {
+            delegate?.textFieldDidEndEditing?(textField)
+            return
+        }
         if validateGuard(textField) == true {
             handleTextFieldSuccess(textField)
             if guardOnSuperViewOfTextField {
@@ -231,6 +253,9 @@ extension Validator: UITextFieldDelegate {
         return true
     }
     @objc internal func textFieldDidChange(_ textField: UITextField) {
+        if !_validateOnTextDidChange {
+            return
+        }
         handleTextFieldSuccess(textField)
         if guardOnSuperViewOfTextField {
             handleSuperViewOfTextField(textField, true)

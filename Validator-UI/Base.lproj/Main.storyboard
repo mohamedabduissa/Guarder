@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,8 +20,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vkv-nB-oRZ">
                                 <rect key="frame" x="15" y="69" width="384" height="50"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Woy-lP-66e">
-                                        <rect key="frame" x="0.0" y="0.0" width="384" height="50"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Woy-lP-66e">
+                                        <rect key="frame" x="5" y="0.0" width="374" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -28,8 +29,8 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="4ti-Cn-g0S"/>
-                                    <constraint firstAttribute="trailing" secondItem="Woy-lP-66e" secondAttribute="trailing" id="TSv-Wj-dtn"/>
-                                    <constraint firstItem="Woy-lP-66e" firstAttribute="leading" secondItem="vkv-nB-oRZ" secondAttribute="leading" id="bIa-aP-f5j"/>
+                                    <constraint firstAttribute="trailing" secondItem="Woy-lP-66e" secondAttribute="trailing" constant="5" id="TSv-Wj-dtn"/>
+                                    <constraint firstItem="Woy-lP-66e" firstAttribute="leading" secondItem="vkv-nB-oRZ" secondAttribute="leading" constant="5" id="bIa-aP-f5j"/>
                                     <constraint firstAttribute="bottom" secondItem="Woy-lP-66e" secondAttribute="bottom" id="hUF-vR-ltV"/>
                                     <constraint firstItem="Woy-lP-66e" firstAttribute="top" secondItem="vkv-nB-oRZ" secondAttribute="top" id="uJF-Or-QT7"/>
                                 </constraints>
@@ -37,7 +38,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JWY-Sz-Hni">
                                 <rect key="frame" x="15" y="144" width="384" height="50"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yo9-G6-aHm">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yo9-G6-aHm">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -50,6 +51,27 @@
                                     <constraint firstAttribute="height" constant="50" id="aRg-TN-NbC"/>
                                     <constraint firstItem="yo9-G6-aHm" firstAttribute="leading" secondItem="JWY-Sz-Hni" secondAttribute="leading" id="hdA-e5-fgF"/>
                                     <constraint firstAttribute="bottom" secondItem="yo9-G6-aHm" secondAttribute="bottom" id="kCx-LD-WlV"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FdM-Cb-53F">
+                                <rect key="frame" x="15" y="219" width="384" height="50"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hWL-35-zXm">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="hWL-35-zXm" firstAttribute="leading" secondItem="FdM-Cb-53F" secondAttribute="leading" id="7Fg-u4-5wD"/>
+                                    <constraint firstAttribute="trailing" secondItem="hWL-35-zXm" secondAttribute="trailing" id="9fL-Du-hO0"/>
+                                    <constraint firstAttribute="bottom" secondItem="hWL-35-zXm" secondAttribute="bottom" id="LH5-4H-c8l"/>
+                                    <constraint firstAttribute="height" constant="50" id="myI-eK-zKS"/>
+                                    <constraint firstItem="hWL-35-zXm" firstAttribute="top" secondItem="FdM-Cb-53F" secondAttribute="top" id="qXv-P3-Uee"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gND-4s-gB6">
@@ -69,7 +91,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gND-4s-gB6" secondAttribute="trailing" constant="25" id="0In-EH-AVn"/>
+                            <constraint firstItem="FdM-Cb-53F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="1bC-u0-cP1"/>
                             <constraint firstItem="vkv-nB-oRZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="KOb-Dl-Lvp"/>
+                            <constraint firstItem="FdM-Cb-53F" firstAttribute="top" secondItem="JWY-Sz-Hni" secondAttribute="bottom" constant="25" id="Qeq-ja-pRm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FdM-Cb-53F" secondAttribute="trailing" constant="15" id="R7v-Rn-sgv"/>
                             <constraint firstItem="gND-4s-gB6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="S6B-TY-W3K"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vkv-nB-oRZ" secondAttribute="trailing" constant="15" id="jFD-l5-PCK"/>
                             <constraint firstItem="gND-4s-gB6" firstAttribute="top" secondItem="vkv-nB-oRZ" secondAttribute="bottom" constant="200" id="ra2-Py-SXf"/>
@@ -82,6 +107,7 @@
                     <connections>
                         <outlet property="emailTxf" destination="Woy-lP-66e" id="XRa-DU-KQp"/>
                         <outlet property="passwordTxf" destination="yo9-G6-aHm" id="hgN-TH-dBk"/>
+                        <outlet property="textView" destination="hWL-35-zXm" id="Pt8-q3-0h6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

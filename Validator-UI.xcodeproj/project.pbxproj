@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C8127A23272991CC005B8493 /* ValidatorAlertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8127A22272991CC005B8493 /* ValidatorAlertable.swift */; };
+		C8127A25272992FE005B8493 /* Validator+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8127A24272992FE005B8493 /* Validator+Combine.swift */; };
+		C8127A2C27299313005B8493 /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8127A2727299313005B8493 /* Publisher.swift */; };
+		C8127A2D27299313005B8493 /* PublisherError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8127A2827299313005B8493 /* PublisherError.swift */; };
+		C8127A2E27299313005B8493 /* Publisher+Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8127A2927299313005B8493 /* Publisher+Sender.swift */; };
+		C8127A2F27299313005B8493 /* Facades.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8127A2A27299313005B8493 /* Facades.swift */; };
+		C8127A3027299313005B8493 /* Publisher+Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8127A2B27299313005B8493 /* Publisher+Listener.swift */; };
 		C87AD7442705F47C00967D7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87AD7432705F47C00967D7C /* AppDelegate.swift */; };
 		C87AD7462705F47C00967D7C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87AD7452705F47C00967D7C /* SceneDelegate.swift */; };
 		C87AD7482705F47C00967D7C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87AD7472705F47C00967D7C /* ViewController.swift */; };
@@ -38,6 +45,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C8127A22272991CC005B8493 /* ValidatorAlertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorAlertable.swift; sourceTree = "<group>"; };
+		C8127A24272992FE005B8493 /* Validator+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Validator+Combine.swift"; sourceTree = "<group>"; };
+		C8127A2727299313005B8493 /* Publisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
+		C8127A2827299313005B8493 /* PublisherError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublisherError.swift; sourceTree = "<group>"; };
+		C8127A2927299313005B8493 /* Publisher+Sender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+Sender.swift"; sourceTree = "<group>"; };
+		C8127A2A27299313005B8493 /* Facades.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Facades.swift; sourceTree = "<group>"; };
+		C8127A2B27299313005B8493 /* Publisher+Listener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+Listener.swift"; sourceTree = "<group>"; };
 		C87AD7402705F47C00967D7C /* Validator-UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Validator-UI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C87AD7432705F47C00967D7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C87AD7452705F47C00967D7C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +95,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C8127A2627299313005B8493 /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				C8127A2727299313005B8493 /* Publisher.swift */,
+				C8127A2827299313005B8493 /* PublisherError.swift */,
+				C8127A2927299313005B8493 /* Publisher+Sender.swift */,
+				C8127A2A27299313005B8493 /* Facades.swift */,
+				C8127A2B27299313005B8493 /* Publisher+Listener.swift */,
+			);
+			path = Combine;
+			sourceTree = "<group>";
+		};
 		C87AD7372705F47C00967D7C = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +126,7 @@
 		C87AD7422705F47C00967D7C /* Validator-UI */ = {
 			isa = PBXGroup;
 			children = (
+				C8127A2627299313005B8493 /* Combine */,
 				C87AD7572705F4A000967D7C /* Validator */,
 				C87AD7432705F47C00967D7C /* AppDelegate.swift */,
 				C87AD7452705F47C00967D7C /* SceneDelegate.swift */,
@@ -116,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				C87AD7582705F4A000967D7C /* Validator.swift */,
+				C8127A24272992FE005B8493 /* Validator+Combine.swift */,
 				C87AD77E2705F4B500967D7C /* Extensions */,
 				C89713552706082600E852EA /* Facades */,
 				C87AD7592705F4A000967D7C /* FacadesUI */,
@@ -135,6 +163,7 @@
 				C87AD75D2705F4A000967D7C /* ValidatorUIType.swift */,
 				C87AD75E2705F4A000967D7C /* ValidatorLabelUI+Ex.swift */,
 				C87AD75F2705F4A000967D7C /* ValidatorUI.swift */,
+				C8127A22272991CC005B8493 /* ValidatorAlertable.swift */,
 			);
 			path = FacadesUI;
 			sourceTree = "<group>";
@@ -259,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8127A2F27299313005B8493 /* Facades.swift in Sources */,
 				C87AD7732705F4A000967D7C /* ValidatorUI.swift in Sources */,
 				C87AD7822705F57300967D7C /* UIView+AutoLayoutHelper.swift in Sources */,
 				C87AD7752705F4A000967D7C /* GuardUI.swift in Sources */,
@@ -274,9 +304,15 @@
 				C87AD77C2705F4A000967D7C /* Guard.swift in Sources */,
 				C87AD7772705F4A000967D7C /* GuardLength.swift in Sources */,
 				C87AD7482705F47C00967D7C /* ViewController.swift in Sources */,
+				C8127A2E27299313005B8493 /* Publisher+Sender.swift in Sources */,
+				C8127A25272992FE005B8493 /* Validator+Combine.swift in Sources */,
+				C8127A3027299313005B8493 /* Publisher+Listener.swift in Sources */,
+				C8127A23272991CC005B8493 /* ValidatorAlertable.swift in Sources */,
+				C8127A2D27299313005B8493 /* PublisherError.swift in Sources */,
 				C87AD7442705F47C00967D7C /* AppDelegate.swift in Sources */,
 				C87AD7802705F4C400967D7C /* Strings.swift in Sources */,
 				C87AD7462705F47C00967D7C /* SceneDelegate.swift in Sources */,
+				C8127A2C27299313005B8493 /* Publisher.swift in Sources */,
 				C87AD7712705F4A000967D7C /* ValidatorUIType.swift in Sources */,
 				C87AD77A2705F4A000967D7C /* GuardPhone.swift in Sources */,
 				C87AD77D2705F4A000967D7C /* ValidatorGuard.swift in Sources */,

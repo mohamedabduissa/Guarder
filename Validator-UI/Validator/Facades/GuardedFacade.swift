@@ -19,12 +19,21 @@ public protocol GuardedFacade: NSObjectProtocol {
     func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControl.Event)
 }
 
-
-
-extension UITextField: GuardedFacade {
+extension GuardedFacade {
     public var id: UIView? {
+        return self as? UIView
+    }
+    public var attributedPlaceholder: NSAttributedString? {
         get {
-            return self
+            return NSAttributedString()
+        } set {
+            
         }
     }
+    public func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControl.Event) { }
+    public func setPlaceHolderTextColor(_ color: UIColor) { }
+}
+
+extension UITextField: GuardedFacade {
+    
 }

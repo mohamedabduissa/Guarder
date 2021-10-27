@@ -18,7 +18,7 @@ protocol ValidatorUI: NSObjectProtocol {
     func handleUnderline(_ textField: GuardedFacade, _ success: Bool)
     func handleInfoMark(_ textField: GuardedFacade, _ success: Bool)
     func handleLabel(_ textField: GuardedFacade, _ success: Bool)
-    func handleMessage(_ textField: GuardedFacade, _ success: Bool)
+    func handleMessage(_ view: UIViewController, _ textField: GuardedFacade, _ success: Bool)
 }
 
 
