@@ -1,0 +1,30 @@
+//
+//  TextFieldFacade.swift
+//  Validator-UI
+//
+//  Created by Mabdu on 30/09/2021.
+//
+
+import Foundation
+import UIKit
+public protocol GuardedFacade: NSObjectProtocol {
+    var id: UIView? { get }
+    var text: String? { set get }
+    var textColor: UIColor? { set get }
+    var attributedPlaceholder: NSAttributedString? { set get }
+    var superview: UIView? { get }
+    var frame: CGRect { set get }
+    var delegate: UITextFieldDelegate? { set get }
+    func setPlaceHolderTextColor(_ color: UIColor)
+    func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControl.Event)
+}
+
+
+
+extension UITextField: GuardedFacade {
+    public var id: UIView? {
+        get {
+            return self
+        }
+    }
+}
